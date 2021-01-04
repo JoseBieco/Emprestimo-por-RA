@@ -1,0 +1,52 @@
+CREATE TABLE Curso(
+    IDCurso INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nome varchar(150) NOT NULL,
+    Semestres INTEGER NOT NULL
+);
+
+
+CREATE TABLE Aluno(
+    IDAluno INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nome varchar(100)  NOT NULL,
+    RA varchar(6),
+    IDCurso INTEGER NOT NULL,
+    FOREIGN KEY (IDCurso) REFERENCES Curso(IDCurso)
+);
+
+CREATE TABLE Emprestimo(
+    IDEmpresitmo INTEGER PRIMARY KEY AUTOINCREMENT,
+    IDAluno INTEGER NOT NULL,
+    Retirada datetime default current_timestamp
+);
+
+
+INSERT INTO Curso 
+VALUES
+    (NULL, 'Engenharia de Computação', 10),
+    (NULL,'Engenharia de Civil', 10),
+    (NULL,'Engenharia de Produção', 10),
+    (NULL,'Jogos Digitais', 5);
+
+SELECT * FROM Curso;
+
+INSERT INTO Aluno
+VALUES
+    (NULL, 'José Eduardo', '190277', 1),
+    (NULL, 'Teste1', '112233', 2),
+    (NULL, 'Teste3', '445566', 3),
+    (NULL, 'Teste2', '778899', 4),
+    (NULL, 'Teste4', '101112', 1);
+    
+SELECT * FROM Aluno;
+
+SELECT 
+    A.RA, A.Nome AS Aluno, C.Nome AS Curso, C.Semestres
+FROM 
+    Aluno AS A INNER JOIN Curso AS C 
+        ON A.IDCurso = C.IDCurso;
+        
+INSERT INTO Emprestimo
+VALUES
+    (NULL, 1, DateTime('now'));
+    
+SELECT * FROM Emprestimo;
