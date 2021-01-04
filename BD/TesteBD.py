@@ -8,13 +8,13 @@ def opcoes(op, conn, cursor):
     }
     cases.get(op, lambda: print("\nOpção inválida!\n"))()
 
+
 def menuOpcoes():
     print("\t--- Menu ---")
     print("1 - Cadastrar")
     print("2 - Listar")
     print("0 - Sair")
     print(">> ", end="")
-
 
 def cadastrar(conn, cursor):
     print("\t --- Cadastro ---\n")
@@ -23,12 +23,18 @@ def cadastrar(conn, cursor):
 def listar(cursor):
     print("\t --- Listar ---")
 
-    cursor.execute("SELECT * FROM Aluno")
+    cursor.execute("""
+        SELECT 
+            A.RA, A.Nome, C.Nome 
+        FROM 
+            Aluno AS A INNER JOIN Curso AS C
+                ON A.IDCurso = C.IDCurso
+        """)
 
     for linha in cursor.fetchall():
-        print("\nRA: " + linha[2])
+        print("\nRA: " + linha[0])
         print("Nome: " + linha[1])
-        print("IDCurso: ", linha[3])
+        print("Curso: ", linha[2])
 
 
 # Connection
