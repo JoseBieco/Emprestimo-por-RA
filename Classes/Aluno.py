@@ -1,3 +1,5 @@
+# from Classes import Curso
+
 class Aluno:
     def __init__(self) -> None:
         super().__init__()
@@ -8,6 +10,7 @@ class Aluno:
         self.nome = nome
         self.Ra = Ra
         self.IdCurso = IdCurso
+        # self.Curso = Curso(Curso.Id, Curso.nome, Curso.semestres)
 
     # Getters and Setters
     def setNome(self, nome):

@@ -12,3 +12,6 @@ while continuar:
         continue
     
     iWtD(op, conn, cursor)
+
+cursor.close()
+conn.commit()
