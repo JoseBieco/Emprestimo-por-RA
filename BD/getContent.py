@@ -15,7 +15,7 @@ def rCurso(cursor):
     cursor.execute("SELECT * FROM Curso")
 
     for linha in cursor.fetchall():
-        print("\nId: " + linha[0])
+        print("\nId: " + str(linha[0]))
         print("Curso: " + linha[1])
-        print("Semestres: " + linha[2])
+        print("Semestres: " + str(linha[2]))
     print("\n")

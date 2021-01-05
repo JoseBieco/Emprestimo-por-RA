@@ -34,7 +34,8 @@ def listar(cursor):
     for linha in cursor.fetchall():
         print("\nRA: " + linha[0])
         print("Nome: " + linha[1])
-        print("Curso: ", linha[2])
+        print("Curso: " + linha[2])
+    print("\n")
 
 
 # Connection
@@ -57,4 +58,4 @@ while continuar:
 
     opcoes(op, conn, cursor)
 
-
+conn.close()

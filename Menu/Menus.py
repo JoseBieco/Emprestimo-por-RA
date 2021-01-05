@@ -1,3 +1,5 @@
+# Não Utilizando
+
 def menuInicial():
     print("\t--- Menu ---")
     print("1 - Cadastrar")
@@ -6,15 +8,17 @@ def menuInicial():
     print(">> ", end="")
 
 
-def menuCadastro():
+def menuCadastro(conn, cursor):
     print("\t--- Menu de Cadastros ---")
     print("1 - Aluno")
     print("2 - Curso")
     print("0 - Sair")
     print(">> ", end="")
+    
+    
 
 
-def menuRegistros():
+def menuRegistros(conn, cursor):
     print("\t--- Menu de Registros ---")
     print("1 - Aluno")
     print("2 - Curso")
